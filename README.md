@@ -1,14 +1,53 @@
-# Welcome to your CDK TypeScript project
+# Serverless Scheduled Tasks
 
-This is a blank project for CDK development with TypeScript.
+EventBridgeを使用して定期的にLambda関数を実行するサンプルプロジェクトです。
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## アーキテクチャ
 
-## Useful commands
+![Architecture](./docs/architecture.drawio)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## 主な機能
+
+- **EventBridge Rule**: 毎日6:00 UTC（15:00 JST）に自動実行
+- **Lambda Function**: Node.js 18.xで実装されたシンプルな実行関数
+- **CloudWatch Logs**: 実行ログの記録と監視
+
+## 技術スタック
+
+- AWS CDK (TypeScript)
+- AWS Lambda (Node.js 18.x)
+- Amazon EventBridge
+- Amazon CloudWatch
+
+## セットアップ
+
+```bash
+# 依存関係のインストール
+npm install
+
+# TypeScriptのビルド
+npm run build
+
+# AWSへのデプロイ
+npx cdk deploy
+```
+
+## プロジェクト構成
+
+```
+.
+├── bin/                    # CDKアプリのエントリーポイント
+├── lib/                    # CDKスタック定義
+├── lambda/                 # Lambda関数のコード
+├── docs/                   # ドキュメント・構成図
+└── README.md
+```
+
+## 開発コマンド
+
+```bash
+npm run build   # TypeScriptをコンパイル
+npm run watch   # ファイル変更を監視してコンパイル
+npx cdk diff    # デプロイ済みスタックとの差分確認
+npx cdk synth   # CloudFormationテンプレートの生成
+```
