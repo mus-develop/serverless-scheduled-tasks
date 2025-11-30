@@ -4,7 +4,7 @@ EventBridgeを使用して定期的にLambda関数を実行するサンプルプ
 
 ## アーキテクチャ
 
-![Architecture](./docs/architecture.drawio)
+![Architecture](./docs/architecture.drawio.png)
 
 ## 主な機能
 
